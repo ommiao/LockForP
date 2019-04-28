@@ -1,0 +1,139 @@
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="@dimen/full_size"
+    android:layout_height="@dimen/full_size"
+    android:background="@android:color/transparent">
+
+    <RelativeLayout
+        android:layout_width="@dimen/funcs_size"
+        android:layout_height="@dimen/funcs_size"
+        android:layout_gravity="center"
+        android:background="@drawable/shape_main_dialog">
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_switch"
+            android:layout_width="@dimen/card_size"
+            android:layout_height="@dimen/card_size"
+            app:cardBackgroundColor="@color/red"
+            app:cardCornerRadius="@dimen/card_radius"
+            app:cardElevation="@dimen/card_elevation"
+            android:layout_toStartOf="@+id/center"
+            android:layout_above="@+id/center"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="@dimen/func_icon_size"
+                android:layout_height="@dimen/func_icon_size"
+                android:src="@drawable/icon_switch"
+                android:layout_gravity="center"
+                tools:ignore="ContentDescription" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_more"
+            android:layout_width="@dimen/card_size"
+            android:layout_height="@dimen/card_size"
+            app:cardBackgroundColor="@color/purple"
+            app:cardCornerRadius="@dimen/card_radius"
+            app:cardElevation="@dimen/card_elevation"
+            android:layout_above="@+id/center"
+            android:layout_toEndOf="@+id/center"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="@dimen/func_icon_size"
+                android:layout_height="@dimen/func_icon_size"
+                android:src="@drawable/icon_more"
+                android:layout_gravity="center"
+                tools:ignore="ContentDescription" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_shortcut"
+            android:layout_width="@dimen/card_size"
+            android:layout_height="@dimen/card_size"
+            app:cardBackgroundColor="@color/blue"
+            app:cardCornerRadius="@dimen/card_radius"
+            app:cardElevation="@dimen/card_elevation"
+            android:layout_toStartOf="@+id/center"
+            android:layout_below="@+id/center"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="@dimen/func_icon_size"
+                android:layout_height="@dimen/func_icon_size"
+                android:src="@drawable/icon_shortcut"
+                android:layout_gravity="center"
+                tools:ignore="ContentDescription" />
+
+        </android.support.v7.widget.CardView>
+
+        <android.support.v7.widget.CardView
+            android:id="@+id/cv_home"
+            android:layout_width="@dimen/card_size"
+            android:layout_height="@dimen/card_size"
+            app:cardBackgroundColor="@color/green"
+            app:cardCornerRadius="@dimen/card_radius"
+            app:cardElevation="@dimen/card_elevation"
+            android:layout_below="@+id/center"
+            android:layout_toEndOf="@+id/center"
+            android:foreground="?android:attr/selectableItemBackground">
+
+            <ImageView
+                android:layout_width="@dimen/func_icon_size"
+                android:layout_height="@dimen/func_icon_size"
+                android:src="@drawable/icon_home"
+                android:layout_gravity="center"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/iv_home_state"
+                android:layout_width="10dp"
+                android:layout_height="10dp"
+                android:layout_margin="10dp"
+                android:src="@drawable/shape_dot_open"
+                android:layout_gravity="top|end"
+                tools:ignore="ContentDescription" />
+
+        </android.support.v7.widget.CardView>
+
+        <View
+            android:id="@+id/center"
+            android:layout_width="@dimen/card_divider_width"
+            android:layout_height="@dimen/card_divider_width"
+            android:layout_centerInParent="true"/>
+
+        <ImageView
+            android:layout_width="@dimen/state_size"
+            android:layout_height="@dimen/state_size"
+            android:background="@drawable/shape_circle"
+            android:layout_centerInParent="true"
+            tools:ignore="ContentDescription" />
+
+        <ImageView
+            android:id="@+id/iv_state"
+            android:layout_width="@dimen/state_size"
+            android:layout_height="@dimen/state_size"
+            android:layout_centerInParent="true"
+            android:src="@drawable/icon_fail"
+            android:padding="@dimen/state_padding"
+            tools:ignore="ContentDescription" />
+
+    </RelativeLayout>
+
+    <ImageView
+        android:id="@+id/iv_close"
+        android:layout_width="@dimen/close_size"
+        android:layout_height="@dimen/close_size"
+        android:padding="@dimen/close_padding"
+        android:src="@drawable/icon_close"
+        android:background="@drawable/shape_circle"
+        android:layout_gravity="center_horizontal"
+        tools:ignore="ContentDescription" />
+
+</FrameLayout>
+
