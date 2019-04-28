@@ -5,6 +5,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.res.Resources;
 import android.view.accessibility.AccessibilityEvent;
@@ -22,6 +23,8 @@ public class LockAccessibilityService extends AccessibilityService {
 
     private static boolean HOME_LONG_CLICK_START = false;
 
+    private static SharedPreferences preferences;
+
     private String homeString;
 
     private LockActionReceiver lockActionReceiver;
@@ -30,6 +33,8 @@ public class LockAccessibilityService extends AccessibilityService {
     public void onCreate() {
         super.onCreate();
         homeString = getVitualNavigationKey(this, "accessibility_home", PACKAGE_SYSTEMUI);
+        preferences = getSharedPreferences("data", MODE_PRIVATE);
+        HOME_LONG_CLICK_START = preferences.getBoolean("HOME_LONG_CLICK_START", false);
     }
 
     @Override
@@ -75,6 +80,9 @@ public class LockAccessibilityService extends AccessibilityService {
 
     public static void setHomeLongClickStart(boolean start){
         LockAccessibilityService.HOME_LONG_CLICK_START = start;
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.putBoolean("HOME_LONG_CLICK_START", start);
+        editor.apply();
     }
 
     private void lockNow(){
