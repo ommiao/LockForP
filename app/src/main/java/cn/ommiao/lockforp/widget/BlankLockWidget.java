@@ -17,7 +17,7 @@ public class BlankLockWidget extends AppWidgetProvider {
 
         RemoteViews views = new RemoteViews(context.getPackageName(), R.layout.widget_blank_lock);
         Intent it = new Intent(context, ShortcutActivity.class);
-        PendingIntent pendingIntent = PendingIntent.getActivity(context, 269, it, 0);
+        PendingIntent pendingIntent = PendingIntent.getActivity(context, 269, it, PendingIntent.FLAG_IMMUTABLE);
         views.setOnClickPendingIntent(R.id.lock, pendingIntent);
         appWidgetManager.updateAppWidget(appWidgetId, views);
     }

@@ -6,13 +6,14 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.provider.Settings;
-import android.support.v4.content.pm.ShortcutInfoCompat;
-import android.support.v4.content.pm.ShortcutManagerCompat;
-import android.support.v4.graphics.drawable.IconCompat;
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.pm.ShortcutInfoCompat;
+import androidx.core.content.pm.ShortcutManagerCompat;
+import androidx.core.graphics.drawable.IconCompat;
 
 import java.util.UUID;
 
@@ -91,7 +92,7 @@ public class MainActivity extends AppCompatActivity {
 
                 //当添加快捷方式的确认弹框弹出来时，将被回调
                 Intent it = new Intent();
-                PendingIntent shortcutCallbackIntent = PendingIntent.getBroadcast(this, 269, it, 0);
+                PendingIntent shortcutCallbackIntent = PendingIntent.getBroadcast(this, 269, it, PendingIntent.FLAG_IMMUTABLE);
                 ShortcutManagerCompat.requestPinShortcut(this, info, shortcutCallbackIntent.getIntentSender());
             }
         } else {

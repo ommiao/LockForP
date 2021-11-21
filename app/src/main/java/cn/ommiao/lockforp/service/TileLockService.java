@@ -7,7 +7,7 @@ import cn.ommiao.lockforp.activity.ShortcutActivity;
 
 import static android.content.Intent.FLAG_ACTIVITY_NEW_TASK;
 
-public class TileLockSevice extends TileService {
+public class TileLockService extends TileService {
 
     @Override
     public void onClick() {

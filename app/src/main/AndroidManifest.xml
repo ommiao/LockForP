@@ -12,7 +12,8 @@
         android:theme="@style/FakeDialog">
 
         <activity
-            android:name=".activity.MainActivity">
+            android:name=".activity.MainActivity"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <action android:name="android.intent.action.VIEW" />
@@ -24,7 +25,8 @@
             android:name=".activity.ShortcutActivity"
             android:excludeFromRecents="true"
             android:label="@string/lock"
-            android:theme="@android:style/Theme.NoDisplay">
+            android:theme="@android:style/Theme.NoDisplay"
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.VIEW"/>
                 <category android:name="android.intent.category.DEFAULT"/>
@@ -35,7 +37,7 @@
         <service
             android:name=".service.LockAccessibilityService"
             android:enabled="true"
-            android:exported="true"
+            android:exported="false"
             android:permission="android.permission.BIND_ACCESSIBILITY_SERVICE">
             <intent-filter>
                 <action android:name="android.accessibilityservice.AccessibilityService" />
@@ -46,10 +48,11 @@
         </service>
 
         <service
-            android:name=".service.TileLockSevice"
+            android:name=".service.TileLockService"
             android:icon="@drawable/icon_lock"
             android:label="@string/lock"
-            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE"
+            android:exported="true">
 
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE" />
@@ -57,7 +60,8 @@
 
         </service>
 
-        <receiver android:name=".widget.LockWidget">
+        <receiver android:name=".widget.LockWidget"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>
@@ -67,7 +71,8 @@
                 android:resource="@xml/lock_widget_info" />
         </receiver>
 
-        <receiver android:name=".widget.BlankLockWidget">
+        <receiver android:name=".widget.BlankLockWidget"
+            android:exported="false">
             <intent-filter>
                 <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
             </intent-filter>

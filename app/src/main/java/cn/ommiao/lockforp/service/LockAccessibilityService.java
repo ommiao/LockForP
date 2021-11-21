@@ -32,7 +32,7 @@ public class LockAccessibilityService extends AccessibilityService {
     @Override
     public void onCreate() {
         super.onCreate();
-        homeString = getVitualNavigationKey(this, "accessibility_home", PACKAGE_SYSTEMUI);
+        homeString = getVirtualNavigationKey(this, "accessibility_home", PACKAGE_SYSTEMUI);
         preferences = getSharedPreferences("data", MODE_PRIVATE);
         HOME_LONG_CLICK_START = preferences.getBoolean("HOME_LONG_CLICK_START", false);
     }
@@ -89,7 +89,7 @@ public class LockAccessibilityService extends AccessibilityService {
         performGlobalAction(AccessibilityService.GLOBAL_ACTION_LOCK_SCREEN);
     }
 
-    private String getVitualNavigationKey(Context context, String name, String packageName)
+    private String getVirtualNavigationKey(Context context, String name, String packageName)
     {
         try
         {
