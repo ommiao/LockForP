@@ -1,10 +1,10 @@
 <resources>
-    <string name="app_name">喵了锁屏(P)</string>
-    <string name="slogan">Say \"OK Google&#8230;\"</string>
-    <string name="lock">锁屏</string>
-    <string name="lock_accessibility_not_start">无障碍服务未开启</string>
-    <string name="lock_accessibility_info">本服务监听Home键长按动作，且用于屏幕锁定。</string>
-    <string name="home_long_click_start">长按Home键锁定开启</string>
-    <string name="home_long_click_close">长按Home键锁定关闭</string>
-    <string name="no_function">还没想好是什么功能</string>
+    <string name="app_name">Screen Lock</string>
+    <string name="slogan" translatable="false">Say \"OK Google&#8230;\"</string>
+    <string name="lock">Lock</string>
+    <string name="lock_accessibility_not_start">Accessibility service has not enabled.</string>
+    <string name="lock_accessibility_info">This service is only for locking your screen.</string>
+    <string name="home_long_click_start">Long-press-home lock enabled.</string>
+    <string name="home_long_click_close">Long-press-home lock disabled.</string>
+    <string name="no_function">Not implementation.</string>
 </resources>
