@@ -9,6 +9,7 @@ import android.provider.Settings;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.pm.ShortcutInfoCompat;
@@ -50,6 +51,7 @@ public class MainActivity extends AppCompatActivity {
             ivState.setImageResource(R.drawable.icon_success);
         } else {
             ivState.setImageResource(R.drawable.icon_fail);
+            Util.shortToast(getString(R.string.accessibility_tips), Toast.LENGTH_LONG);
         }
         if(LockAccessibilityService.isHomeLongClickStart()){
             ivHomeState.setVisibility(View.VISIBLE);

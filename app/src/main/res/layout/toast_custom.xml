@@ -12,7 +12,7 @@
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="24dp"
+        android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_margin="10dp">
 
@@ -40,7 +40,7 @@
             android:layout_gravity="center_vertical"
             android:textSize="14sp"
             android:textColor="@android:color/black"
-            android:maxLines="1"
+            android:maxLines="2"
             tools:text="This is test text. 这是测试文字。"/>
 
     </LinearLayout>

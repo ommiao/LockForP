@@ -48,12 +48,17 @@ public class Util {
     }
 
     public static void shortToast(String content){
+        shortToast(content, Toast.LENGTH_SHORT);
+    }
+
+    public static void shortToast(String content, int duration){
         Toast toast = new Toast(context);
         @SuppressLint("InflateParams")
         View view = LayoutInflater.from(context).inflate(R.layout.toast_custom, null);
         TextView textView = view.findViewById(R.id.toast_text);
         textView.setText(content);
         toast.setView(view);
+        toast.setDuration(duration);
         toast.show();
     }
 

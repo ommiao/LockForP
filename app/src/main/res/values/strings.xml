@@ -7,4 +7,5 @@
     <string name="home_long_click_start">Long-press-home lock enabled.</string>
     <string name="home_long_click_close">Long-press-home lock disabled.</string>
     <string name="no_function">Not implementation.</string>
+    <string name="accessibility_tips">This app need accessibility service to lock your screen.</string>
 </resources>
