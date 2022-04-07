@@ -7,4 +7,5 @@
     <string name="home_long_click_close">长按Home键锁定关闭</string>
     <string name="no_function">还没想好是什么功能</string>
     <string name="accessibility_tips">此应用需要启用无障碍权限执行锁屏操作。</string>
+    <string name="btn_enable">启用</string>
 </resources>

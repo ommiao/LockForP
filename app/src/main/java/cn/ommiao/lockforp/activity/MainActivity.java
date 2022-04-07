@@ -9,9 +9,9 @@ import android.provider.Settings;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.content.pm.ShortcutInfoCompat;
 import androidx.core.content.pm.ShortcutManagerCompat;
 import androidx.core.graphics.drawable.IconCompat;
@@ -31,6 +31,8 @@ public class MainActivity extends AppCompatActivity {
 
     private LockServiceStateReceiver lockServiceStateReceiver;
 
+    private CardView cvAccessibility;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,18 +42,21 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initViews() {
+        findViewById(R.id.tv_enable).setOnClickListener(v -> onSwitchClick());
         findViewById(R.id.cv_switch).setOnClickListener(v -> onSwitchClick());
         findViewById(R.id.cv_more).setOnClickListener(v -> onMoreClick());
         findViewById(R.id.cv_shortcut).setOnClickListener(v -> onShortcutClick());
         findViewById(R.id.cv_home).setOnClickListener(v -> onHomeClick());
         findViewById(R.id.iv_close).setOnClickListener(v -> finish());
+        cvAccessibility = findViewById(R.id.cv_accessibility);
         ivState = findViewById(R.id.iv_state);
         ivHomeState = findViewById(R.id.iv_home_state);
         if(isServiceOn()){
             ivState.setImageResource(R.drawable.icon_success);
+            cvAccessibility.setVisibility(View.GONE);
         } else {
             ivState.setImageResource(R.drawable.icon_fail);
-            Util.shortToast(getString(R.string.accessibility_tips), Toast.LENGTH_LONG);
+            cvAccessibility.setVisibility(View.VISIBLE);
         }
         if(LockAccessibilityService.isHomeLongClickStart()){
             ivHomeState.setVisibility(View.VISIBLE);
@@ -135,6 +140,7 @@ public class MainActivity extends AppCompatActivity {
             String action = intent.getAction();
             if(LOCK_ASSESSIBILITY_START.equals(action)){
                 ivState.setImageResource(R.drawable.icon_success);
+                cvAccessibility.setVisibility(View.GONE);
             } else if(LOCK_ASSESSIBILITY_CLOSE.equals(action)){
                 ivState.setImageResource(R.drawable.icon_fail);
             }
