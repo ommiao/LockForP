@@ -8,6 +8,7 @@ android {
         targetSdkVersion 31
         versionCode 9
         versionName "1.0.9"
+        setProperty("archivesBaseName", "LockForP-v" + versionCode + "(" + versionName + ")")
     }
     buildTypes {
         release {
@@ -18,14 +19,6 @@ android {
     compileOptions {
         sourceCompatibility = '1.8'
         targetCompatibility = '1.8'
-    }
-
-    android.applicationVariants.all { variant ->
-        variant.outputs.all {
-            if (outputFileName.endsWith('.apk')) {
-                outputFileName = "lockforp_" + versionName + ".apk"
-            }
-        }
     }
 }
 
