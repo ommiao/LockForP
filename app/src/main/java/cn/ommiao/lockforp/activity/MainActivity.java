@@ -42,7 +42,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initViews() {
-        findViewById(R.id.tv_enable).setOnClickListener(v -> onSwitchClick());
+        findViewById(R.id.tv_agree).setOnClickListener(v -> onSwitchClick());
+        findViewById(R.id.tv_deny).setOnClickListener(v -> finish());
         findViewById(R.id.cv_switch).setOnClickListener(v -> onSwitchClick());
         findViewById(R.id.cv_more).setOnClickListener(v -> onMoreClick());
         findViewById(R.id.cv_shortcut).setOnClickListener(v -> onShortcutClick());
