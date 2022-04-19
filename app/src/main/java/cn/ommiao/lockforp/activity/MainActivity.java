@@ -144,6 +144,7 @@ public class MainActivity extends AppCompatActivity {
                 cvAccessibility.setVisibility(View.GONE);
             } else if(LOCK_ASSESSIBILITY_CLOSE.equals(action)){
                 ivState.setImageResource(R.drawable.icon_fail);
+                cvAccessibility.setVisibility(View.VISIBLE);
             }
         }
     }

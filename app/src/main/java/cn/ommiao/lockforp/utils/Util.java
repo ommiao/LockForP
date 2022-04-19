@@ -1,13 +1,16 @@
 package cn.ommiao.lockforp.utils;
 
+import android.accessibilityservice.AccessibilityServiceInfo;
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.provider.Settings;
-import android.text.TextUtils;
+import android.content.pm.ServiceInfo;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.accessibility.AccessibilityManager;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import java.util.List;
 
 import cn.ommiao.lockforp.App;
 import cn.ommiao.lockforp.R;
@@ -19,30 +22,13 @@ public class Util {
     private static final Context context = App.getContext();
 
     public static boolean isLockAccessibilityServiceOn() {
-        int accessibilityEnabled = 0;
-        final String service = context.getPackageName() + "/" + LockAccessibilityService.class.getCanonicalName();
-        try {
-            accessibilityEnabled = Settings.Secure.getInt(
-                    context.getContentResolver(),
-                    android.provider.Settings.Secure.ACCESSIBILITY_ENABLED);
-        } catch (Settings.SettingNotFoundException e) {
-            e.printStackTrace();
-        }
+        AccessibilityManager am = (AccessibilityManager) context.getSystemService(Context.ACCESSIBILITY_SERVICE);
+        List<AccessibilityServiceInfo> enabledServices = am.getEnabledAccessibilityServiceList(AccessibilityServiceInfo.FEEDBACK_ALL_MASK);
 
-        TextUtils.SimpleStringSplitter mStringColonSplitter = new TextUtils.SimpleStringSplitter(':');
-        if (accessibilityEnabled == 1) {
-            String settingValue = Settings.Secure.getString(
-                    context.getContentResolver(),
-                    Settings.Secure.ENABLED_ACCESSIBILITY_SERVICES);
-            if (settingValue != null) {
-                mStringColonSplitter.setString(settingValue);
-                while (mStringColonSplitter.hasNext()) {
-                    String accessibilityService = mStringColonSplitter.next();
-                    if (accessibilityService.equalsIgnoreCase(service)) {
-                        return true;
-                    }
-                }
-            }
+        for (AccessibilityServiceInfo enabledService : enabledServices) {
+            ServiceInfo enabledServiceInfo = enabledService.getResolveInfo().serviceInfo;
+            if (enabledServiceInfo.packageName.equals(context.getPackageName()) && enabledServiceInfo.name.equals(LockAccessibilityService.class.getName()))
+                return true;
         }
         return false;
     }
